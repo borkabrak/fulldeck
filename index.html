@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cards.css">
+    <script src="/script/jquery/jquery.js"></script>
+    <script src="cards.js"></script>
+</head>
+
+<body>
+
+    <h1>Cards</h1>
+
+    <div id="card-table">
+        <div id="deck"></div>
+        <div id="player"></div>
+    </div>
+
+    <nav id="controls">
+        <button id="show">Show</button>
+        <button id="shuffle">Shuffle</button>
+        <button id="draw">Draw</button>
+    </nav>
+
+</body>
+
+<script>
+
+$(function(){
+
+    deck = new Deck({
+        fresh: true,
+        container: $("#deck"),
+        offset: "5px",
+    });
+
+    player = new Deck({
+        container: $("#player"),
+        offset: "40px",
+    });
+
+    $("button#show").on('click', function(){
+        deck.show();
+    });
+
+    $("button#shuffle").on('click', function(){
+        deck.shuffle();
+        deck.show();
+    });
+
+    $("button#draw").on('click', function(){
+        player.push(deck.pop());
+        deck.show();
+        player.show();
+    });
+
+    deck.show();
+
+
+});
+
+</script>
+
+</html>
