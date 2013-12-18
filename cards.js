@@ -50,7 +50,7 @@ Deck = function(config) {
     this.cards = [];
 
     this.container = config && config.container;
-    this.offset = config && parseFloat(config.offset).toString() || "0";
+    this.left_offset = config && parseFloat(config.left_offset).toString() || "0";
 
     // Initialize a fresh deck on command
     if (config && config.fresh === true) {
@@ -62,12 +62,16 @@ Deck = function(config) {
 };
 
 Deck.prototype.show = function(){
-
     var self = this;
+
     $(this.container).empty();
-    //this.cards.forEach(function(card){
+
     for (var i = 0; i < this.cards.length; i++){
-        $(self.container).append(this.cards[i].toHTML().css("left", parseFloat(i * this.offset).toString() + "px"));
+        $(self.container).append(
+            this.cards[i].toHTML().css({
+                "left": parseFloat(i * this.left_offset).toString() + "px"
+            })
+        );
     };
 
     // Side effects, side effects..

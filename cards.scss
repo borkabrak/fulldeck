@@ -1,3 +1,9 @@
+$gray: #888;
+
+body {
+    background-color: $gray; 
+}
+
 #card-table {
     background-color: #383;
     color: white;
@@ -18,25 +24,26 @@
     padding: 1em;
     font-weight: bold;
     position: absolute;
-}
 
-.card .rank1 {
-    position: relative;
-    left: 0;
-    top: 0;
-}
+    .rank1 {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
 
-.card .rank2 {
-    position: relative;
-    left: 90%;
-    top: 100%;
-}
+    .rank2 {
+        position: relative;
+        left: 90%;
+        top: 100%;
+    }
 
-.card .suit {
-    font-size: 2em;
-    display: block;
-    padding: 30%;
-    vertical-align: middle;
+    .suit {
+        font-size: 2em;
+        display: block;
+        padding: 30%;
+        vertical-align: middle;
+    }
+
 }
 
 .red {

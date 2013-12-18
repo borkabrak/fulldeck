@@ -18,30 +18,30 @@
     </div>
 
     <nav id="controls">
-        <button id="show">Show</button>
-        <button id="shuffle">Shuffle</button>
+        <button id="reset">Reset</button>
+        <button id="shuffle">Shuffle Deck</button>
         <button id="draw">Draw</button>
     </nav>
 
 </body>
 
 <script>
-
 $(function(){
 
-    deck = new Deck({
-        fresh: true,
-        container: $("#deck"),
-        offset: "5px",
-    });
+    $("button#reset").on('click', function(){
+        deck = new Deck({
+            fresh: true,
+            container: $("#deck"),
+            left_offset: "10px",
+        });
 
-    player = new Deck({
-        container: $("#player"),
-        offset: "40px",
-    });
+        player = new Deck({
+            container: $("#player"),
+            left_offset: "50px",
+        });
 
-    $("button#show").on('click', function(){
         deck.show();
+        player.show();
     });
 
     $("button#shuffle").on('click', function(){
@@ -55,11 +55,9 @@ $(function(){
         player.show();
     });
 
-    deck.show();
-
+    $("button#reset").click();
 
 });
-
 </script>
 
 </html>
